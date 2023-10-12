@@ -20,4 +20,13 @@ export type NewCredential = {
   password: String
 }
 
+export type Credential = {
+  id: number,
+  userId:  number,
+  title:   String,
+  url:      String,
+  username: String,
+  password: String
+}
+
 export type NewUser = Omit<User, "id" | "Credential">
