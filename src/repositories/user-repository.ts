@@ -6,6 +6,13 @@ async function verifyUser(email: string) {
     })
 }
 
+
+async function verifyUserById(userId: number) {
+    return await prisma.user.findFirst({
+        where: { id: userId }
+    })
+}
+
 async function createUser(email: string, password: string) {
     return await prisma.user.create({
         data: {
@@ -15,7 +22,28 @@ async function createUser(email: string, password: string) {
     })
 }
 
+async function createSession(token: string, userId: number) {
+    return prisma.session.create({
+        data: {
+            token,
+            userId
+        }
+    });
+}
+
+async function findSession(token: string) {
+    return prisma.session.findFirst({
+        where: {
+            token,
+        },
+    });
+}
+
+
 export const userRepository = {
     verifyUser,
-    createUser
+    createUser,
+    createSession,
+    findSession,
+    verifyUserById
 }

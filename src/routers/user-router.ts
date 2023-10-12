@@ -6,3 +6,4 @@ import { signUpSchema } from "@/schemas";
 export const userRouter = Router();
 
 userRouter.post('/sign-up', validateBody(signUpSchema), userController.signUp);
+userRouter.post('/sign-in', validateBody(signUpSchema), userController.signIn);

@@ -12,4 +12,12 @@ export type RequestError = {
   message: string;
 };
 
+export type NewCredential = {
+  userId:  number,
+  title:   String,
+  url:      String,
+  username: String,
+  password: String
+}
+
 export type NewUser = Omit<User, "id" | "Credential">

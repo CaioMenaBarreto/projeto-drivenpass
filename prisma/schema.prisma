@@ -13,8 +13,20 @@ model User {
     password String
 
     Credential Credential[]
+    Session    Session[]
 
     @@map("users")
+}
+
+model Session {
+    id        Int      @id @default(autoincrement())
+    userId    Int
+    user      User     @relation(fields: [userId], references: [id])
+    token     String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@map("sessions")
 }
 
 model Credential {
@@ -29,5 +41,3 @@ model Credential {
 
     @@map("credentials")
 }
-
-
