@@ -13,7 +13,7 @@
     "test:load-envs": "dotenv -e .env.test",
     "test:coverage": "npm run test:load-envs -- jest -- --coverage",
     "test:migration:run": "npm run test:load-envs prisma migrate deploy",
-    "test": "jest",
+    "test": "npm run test:load-envs jest",
     "dev": "cross-env NODE_ENV=development nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/server.ts' -e ts"
   },
   "keywords": [],

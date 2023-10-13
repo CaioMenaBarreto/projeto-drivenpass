@@ -18,10 +18,16 @@ export async function createUser() {
   const incomingPassword = faker.internet.password(10);
   const hashedPassword = await bcrypt.hash(incomingPassword, 10);
 
-  return prisma.user.create({
+  const credential = await prisma.user.create({
     data: {
       email: faker.internet.email(),
       password: hashedPassword,
     },
   });
+
+  return {
+    id: credential.id,
+    email: credential.email,
+    password: incomingPassword
+  }
 }
