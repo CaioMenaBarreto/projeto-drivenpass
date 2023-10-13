@@ -1,7 +1,7 @@
 import { userController } from "../controllers/user-controller";
 import { Router } from "express";
-import { validateBody } from "@/middlewares/validation-middleware";
-import { signUpSchema } from "@/schemas";
+import { validateBody } from "../middlewares/validation-middleware";
+import { signUpSchema } from "../schemas/index";
 
 export const userRouter = Router();
 

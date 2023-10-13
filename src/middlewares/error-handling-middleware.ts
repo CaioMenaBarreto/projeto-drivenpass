@@ -56,6 +56,6 @@ export function handleApplicationErrors(
   console.error(err);
   res.status(httpStatus.INTERNAL_SERVER_ERROR).send({
     error: 'InternalServerError',
-    message: 'Internal Server Error',
+    message: err.message,
   });
 }

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { ObjectSchema } from 'joi';
-import { invalidDataError } from '@/errors/invalid-data-error';
+import { invalidDataError } from '../errors/invalid-data-error';
 
 export function validateBody<T>(schema: ObjectSchema<T>): ValidationMiddleware {
     return validate(schema, 'body');

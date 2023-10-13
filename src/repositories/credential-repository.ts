@@ -1,4 +1,4 @@
-import { prisma } from "@/config"
+import { prisma } from "../config/index"
 
 export async function createCredentials(userId: number, title: string, url: string, username: string, password: string) {
     return await prisma.credential.create({

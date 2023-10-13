@@ -1,6 +1,6 @@
-import { NotFound, credentialExists, credentialNotExists, unauthorizedError } from "@/errors";
-import { Credential, NewCredential } from "@/protocols";
-import { credentialRepository, userRepository } from "@/repositories"
+import { NotFound, credentialExists, credentialNotExists, unauthorizedError } from "../errors/index";
+import { Credential, NewCredential } from "../protocols";
+import { credentialRepository, userRepository } from "../repositories/index"
 import Cryptr from "cryptr";
 import { cryptrSecret } from '../../cryptr';
 

@@ -32,7 +32,7 @@ async function createSession(userId: number) {
     return token;
 }
 
-async function validatePasswordOrFail(password: string, userPassword: string) {
+export async function validatePasswordOrFail(password: string, userPassword: string) {
     const isPasswordValid = await bcrypt.compare(password, userPassword);
-    if (isPasswordValid) throw invalidCredentialsError();
+    if (!isPasswordValid) throw invalidCredentialsError();
 }
